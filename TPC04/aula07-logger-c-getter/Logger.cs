@@ -83,21 +83,13 @@ public class Logger {
     }
 	public List<IGetter> InitProperties(Type t) {
         List<IGetter> l = new List<IGetter>(); 
-        foreach(PropertyInfo p in t.GetProperties()) {
-			//Console.WriteLine("===>>>>> p:"+p.Name);          
-                l.Add(new GetterProperty(p));            
-        } 
+        foreach(PropertyInfo p in t.GetProperties()) l.Add(new GetterProperty(p));       
         return l;
     }
     
     public void LogArray(IEnumerable o) {
         Type elemType = o.GetType().GetElementType(); // Tipo dos elementos do Array
 		InitGetters(elemType); 
-        // var fs = InitFields(elemType ); // 1x
-		// var properties = InitProperties(elemType);
-        // var getters = InitMethods(elemType ); // 1x 
-		// getters.AddRange(fs);
-        // getters.AddRange(properties); 
         Console.WriteLine("Array of " + elemType.Name + "[");
         foreach(object item in o) LogObject(item); // *  
         Console.WriteLine("]");

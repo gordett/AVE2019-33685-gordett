@@ -42,7 +42,11 @@ class Account {
 }
 
 class App {
-    static void Main(){
+    static void Main(string[] args){
+		
+		// Console.WriteLine(args[0]);
+		// Console.WriteLine(args[1]);
+		// Console.WriteLine(args[2]); 
 		
 		Logger log = new Logger();
 		
